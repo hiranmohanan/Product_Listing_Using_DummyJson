@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
                         radius: 34,
                         backgroundColor: scheme.primaryContainer,
                         child: Icon(
-                          Icons.inventory_2_rounded,
+                          Icons.person,
                           size: 34,
                           color: scheme.onPrimaryContainer,
                         ),
