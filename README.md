@@ -32,8 +32,6 @@ flutter analyze
 
 ---
 
-
-
 ## ⏱️ Hours Spent
 
 **Total Time Invested:** ~**4 - 5 hours**
@@ -96,19 +94,19 @@ test/                                  # Automated test suite
 
 ## 📦 Libraries Used & Why
 
-| Library | Version | Purpose & Justification |
-| :--- | :--- | :--- |
-| **`flutter_bloc`** | `^9.1.1` | **State Management:** Implements the BLoC pattern to ensure clean separation between UI and business logic, providing predictable state transitions, high maintainability, and easy testability across all features. |
-| **`dio`** | `^5.11.1` | **HTTP Networking:** Advanced networking client supporting interceptors, automated authorization headers, token refreshing on 401s, request/response developer logging, and configurable timeouts. |
-| **`flutter_secure_storage`** | `^11.2.0` | **Secure Storage:** Safely persists sensitive credentials (JWT access and refresh tokens) using platform-native secure encryption (Keychain on iOS, Keystore/EncryptedSharedPreferences on Android). |
-| **`shared_preferences`** | `^2.5.6` | **Key-Value Persistence:** Stores non-sensitive user preferences (selected theme mode, active language) and serialized cache for offline product browsing and favourites. |
-| **`mobile_scanner`** | `^7.5.0` | **Hardware Camera Scanning:** Fast and reliable QR/barcode scanning capabilities for instant in-store product lookup via camera. |
-| **`permission_handler`** | `^13.0.2` | **Runtime Permissions:** Clean cross-platform API to request and verify camera permissions gracefully before launching the scanner. |
-| **`cached_network_image`** | `^4.0.6` | **Image Optimization:** Caches remote product images locally in memory and disk with placeholders and error widgets, optimizing bandwidth and speeding up scroll performance. |
-| **`flutter_localizations`** | SDK | **Internationalization:** First-party support for localized text, formatting, and RTL (Right-to-Left) directional layout for Arabic language support. |
-| **`cupertino_icons`** | `^1.0.8` | **Asset Icons:** Provides crisp iOS-style design symbols alongside Material design icons. |
-| **`flutter_lints`** | `^6.0.0` | **Code Quality:** Enforces recommended Dart and Flutter style guidelines and lint rules for clean, bug-free code. |
-| **`flutter_test`** | SDK | **Testing:** Comprehensive unit, BLoC, and widget UI test suite. |
+| Library                      | Version   | Purpose & Justification                                                                                                                                                                                              |
+| :--------------------------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`flutter_bloc`**           | `^9.1.1`  | **State Management:** Implements the BLoC pattern to ensure clean separation between UI and business logic, providing predictable state transitions, high maintainability, and easy testability across all features. |
+| **`dio`**                    | `^5.11.1` | **HTTP Networking:** Advanced networking client supporting interceptors, automated authorization headers, token refreshing on 401s, request/response developer logging, and configurable timeouts.                   |
+| **`flutter_secure_storage`** | `^11.2.0` | **Secure Storage:** Safely persists sensitive credentials (JWT access and refresh tokens) using platform-native secure encryption (Keychain on iOS, Keystore/EncryptedSharedPreferences on Android).                 |
+| **`shared_preferences`**     | `^2.5.6`  | **Key-Value Persistence:** Stores non-sensitive user preferences (selected theme mode, active language) and serialized cache for offline product browsing and favourites.                                            |
+| **`mobile_scanner`**         | `^7.5.0`  | **Hardware Camera Scanning:** Fast and reliable QR/barcode scanning capabilities for instant in-store product lookup via camera.                                                                                     |
+| **`permission_handler`**     | `^13.0.2` | **Runtime Permissions:** Clean cross-platform API to request and verify camera permissions gracefully before launching the scanner.                                                                                  |
+| **`cached_network_image`**   | `^4.0.6`  | **Image Optimization:** Caches remote product images locally in memory and disk with placeholders and error widgets, optimizing bandwidth and speeding up scroll performance.                                        |
+| **`flutter_localizations`**  | SDK       | **Internationalization:** First-party support for localized text, formatting, and RTL (Right-to-Left) directional layout for Arabic language support.                                                                |
+| **`cupertino_icons`**        | `^1.0.8`  | **Asset Icons:** Provides crisp iOS-style design symbols alongside Material design icons.                                                                                                                            |
+| **`flutter_lints`**          | `^6.0.0`  | **Code Quality:** Enforces recommended Dart and Flutter style guidelines and lint rules for clean, bug-free code.                                                                                                    |
+| **`flutter_test`**           | SDK       | **Testing:** Comprehensive unit, BLoC, and widget UI test suite.                                                                                                                                                     |
 
 ---
 
@@ -118,17 +116,10 @@ test/                                  # Automated test suite
    - Intercepts `401 Unauthorized` responses and transparently issues a refresh token request to `/auth/refresh`.
    - Queues pending requests and retries the original request with the new access token without disrupting user interaction.
    - Gracefully triggers session expiry and logout if the refresh token is invalid or expired.
-2. **Centralized `ApiEndpointRegistry` & Dev Logging Interceptor:**
-   - Static registry (`ApiEndpointRegistry` / `ApiEndpoints`) centralizing base URLs and endpoint paths.
-   - Built-in `ApiLogInterceptor` that logs API base URL, HTTP method, endpoint, status code, and response body for all network calls via `dart:developer`.
-3. **Automated Login Flow UI Tests:**
+2. **Automated Login Flow UI Tests:**
    - Widget tests in `test/login_ui_test.dart` validating input field behavior, required-field validations, password visibility toggle, and successful submission states.
-4. **Dark & Light Mode Support:**
+3. **Dark & Light Mode Support:**
    - Complete dynamic theming with persistent preference saved across app restarts via `ThemeBloc` and `LocalStore`.
-5. **Offline Caching & Resilience:**
-   - Products, product details, and favourites are cached locally, allowing offline browsing with connectivity fallback handling.
-6. **Multi-Language Support (EN & AR):**
-   - Instant localization toggle between English and Arabic with automatic RTL layout mirroring.
 
 ---
 
